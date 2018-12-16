@@ -5,7 +5,7 @@ import './index.css'
 export default class Index extends Component {
 
   config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '活动报名'
   }
 
   componentWillMount () { }
