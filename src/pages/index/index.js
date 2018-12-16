@@ -49,29 +49,31 @@ export default class Index extends Component {
     if (this.state.statusCode === 200) {
       return (
         <View className='container'>
-          <View className='tickets'>
             <Text className='heading'>选择票种</Text>
+            <View className='tickets'>
             {this.state.list.map(ticket => {
 
               let quotaMessage  
               if (ticket.quota === 0) {
                 quotaMessage = "售罄"
               } else if (ticket.quota > 0 && ticket.quota <10) {
-                quotaMessage = `仅剩${ticket.quota}张`
+                quotaMessage = `仅剩 ${ticket.quota} 张`
               } else {
                 quotaMessage = ""
               }
               return (
                   <View className='ticketAvailable'>
-                    <Text className='ticketLabel'>{ticket.label}</Text>
-                    <Text className='ticketDescription'>{ticket.description}</Text>
-                    <Text className='ticketPrice'>{ticket.price}</Text>
-                    <Text className='priceUnit'>元</Text>
-                    <Text className='ticketQuota'>{quotaMessage}</Text>
+                    <View className='ticketLabel'>{ticket.label}</View>
+                    <View className='ticketDescription'>{ticket.description}</View>
+                    <View className='priceQuota'>
+                      <Text className='ticketPrice'>{ticket.price}</Text>
+                      <Text className='priceUnit'>元</Text>
+                      <Text className='ticketQuota'>{quotaMessage}</Text>
+                    </View>
                   </View>
               )
             })}
-          </View>
+            </View>
         </View>
       )
     } else {
