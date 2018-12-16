@@ -26,7 +26,6 @@ export default class Index extends Component {
       url: 'http://127.0.0.1:8080/'
     }).then(res => {
       if (res.statusCode === 200) {
-        console.log(res.data.length);
         this.setState({
           statusCode: res.statusCode,
           list: res.data,
@@ -55,35 +54,20 @@ export default class Index extends Component {
             {this.state.list.map(ticket => {
 
               let quotaMessage  
-              let description
               if (ticket.quota === 0) {
                 quotaMessage = "售罄"
-                description = (
-                  <View className='ticketDescription'>
-                    <Text className='aboutType'>{ticket.description}</Text>
-                    <Text className='aboutQuota'>{quotaMessage}</Text>
-                  </View>
-                )
               } else if (ticket.quota > 0 && ticket.quota <10) {
                 quotaMessage = `仅剩${ticket.quota}张`
-                description = (
-                  <View className='ticketDescription'>
-                    <Text className='aboutType'>{ticket.description}</Text>
-                    <Text className='aboutQuota'>{quotaMessage}</Text>
-                  </View>
-                )
               } else {
-                description = (
-                  <View className='ticketDescription'>
-                    <Text className='aboutType'>{ticket.description}</Text>
-                  </View>
-                )
+                quotaMessage = ""
               }
               return (
                   <View className='ticketAvailable'>
                     <Text className='ticketLabel'>{ticket.label}</Text>
-                    {description}
-                    <Text className='ticketPrice'>{ticket.price} 元</Text>
+                    <Text className='ticketDescription'>{ticket.description}</Text>
+                    <Text className='ticketPrice'>{ticket.price}</Text>
+                    <Text className='priceUnit'>元</Text>
+                    <Text className='ticketQuota'>{quotaMessage}</Text>
                   </View>
               )
             })}
