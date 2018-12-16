@@ -4,20 +4,20 @@ function tickets(req, res, next) {
   const jsonString = [
   {
     "label": "远程支持票",
-    "description": "可获得活动PPT等资料",
+    "description": "可获得活动 PPT 等资料",
     "price": 9.99,
     "quota": -1,
     "info": {
       "email": {
         "isSensitive": false,
         "label": "电子邮箱",
-        "description": "请输入您的电子邮箱，用于接收活动PPT等资料"
+        "description": "请输入您的电子邮箱，用于接收活动 PPT 等资料"
       }
     }    
   },
   {
     "label": "赞助商票",
-    "description": "品牌露出，详情联系market@example.com",
+    "description": "品牌露出，详情联系 market@example.com",
     "price": 999.99,
     "quota": 2,
     "info": {
