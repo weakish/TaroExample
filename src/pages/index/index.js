@@ -56,7 +56,7 @@ export default class Index extends Component {
               let quotaMessage  
               if (ticket.quota === 0) {
                 quotaMessage = "售罄"
-              } else if (ticket.quota > 0 && ticket.quota <10) {
+              } else if (ticket.quota > 0 && ticket.quota < 10) {
                 quotaMessage = `仅剩 ${ticket.quota} 张`
               } else {
                 quotaMessage = ""
