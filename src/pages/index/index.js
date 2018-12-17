@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Button } from '@tarojs/components'
 import './index.css'
 
 
@@ -61,6 +61,21 @@ export default class Index extends Component {
               } else {
                 quotaMessage = ""
               }
+
+              let isMinusDisabled
+              if (ticket.ordered === 0) {
+                isMinusDisabled = true
+              } else {
+                isMinusDisabled = false
+              }
+
+              let isPlusDisabled
+              if (ticket.quota === -1 || ticket.ordered < ticket.quota) {
+                isPlusDisabled = false
+              } else {
+                isPlusDisabled = true
+              }
+
               return (
                   <View className='ticketAvailable'>
                     <View className='ticketLabel'>{ticket.label}</View>
@@ -69,6 +84,11 @@ export default class Index extends Component {
                       <Text className='ticketPrice'>{ticket.price}</Text>
                       <Text className='priceUnit'>元</Text>
                       <Text className='ticketQuota'>{quotaMessage}</Text>
+                    </View>
+                    <View className='counter'>
+                      <Button className='buttonMinus' size='mini' disabled={isMinusDisabled}>-</Button>
+                      <Button className='buttonNumber' plain hoverClass size='mini'>{ticket.ordered}</Button>
+                      <Button className='buttonPlus' size='mini' disabled={isPlusDisabled}>+</Button>
                     </View>
                   </View>
               )

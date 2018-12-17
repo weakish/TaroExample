@@ -105,3 +105,58 @@
 
     color: #E23B3B;
 }
+
+.buttonMinus {
+    left: 66.2%;
+    right: 17.98%;
+    top: 24.71%;
+    bottom: 30.59%;
+
+    border: 0.5px solid #C5C5C5;
+    box-sizing: border-box;
+
+    display: inline-block;
+    line-height: normal;
+    height: 38px;
+    width: 55px;
+    color: #16B9FF;
+}
+
+.buttonNumber {
+    left: 66.2%;
+    right: 17.98%;
+    top: 24.71%;
+    bottom: 30.59%;
+
+    border: 0.5px solid #C5C5C5;
+    box-sizing: border-box;
+
+    display: inline-block;
+    line-height: normal;
+    height: 38px;
+    width: 63px;
+}
+
+.buttonPlus {
+    left: 66.2%;
+    right: 17.98%;
+    top: 24.71%;
+    bottom: 30.59%;
+
+    border: 0.5px solid #C5C5C5;
+    box-sizing: border-box;
+
+    display: inline-block;
+    line-height: normal;
+    height: 38px;
+    width: 55px;
+    color: #16B9FF;
+}
+
+.buttonMinus[disabled] {
+    color: #CACACA;
+}
+
+.buttonPlus[disabled] {
+    color: #CACACA;
+}

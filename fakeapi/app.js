@@ -7,6 +7,7 @@ function tickets(req, res, next) {
     "description": "可获得活动 PPT 等资料",
     "price": 9.99,
     "quota": -1,
+    "ordered": 0,
     "info": {
       "email": {
         "isSensitive": false,
@@ -20,6 +21,7 @@ function tickets(req, res, next) {
     "description": "品牌露出，详情联系 market@example.com",
     "price": 999.99,
     "quota": 2,
+    "ordered": 0,
     "info": {
         "name": {
           "isSensitive": true,
@@ -43,6 +45,7 @@ function tickets(req, res, next) {
     "description": "可现场参加活动",
     "price": 99.99,
     "quota": 321,
+    "ordered": 0,
     "info": {
         "name": {
           "isSensitive": true,
