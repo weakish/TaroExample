@@ -14,6 +14,7 @@ export default class Index extends Component {
     super(...arguments)
     this.state = {
       list: [],
+      totalPrice: 0, // cents
       statusCode: 0,
       ErrorMessage: "恭喜你踩到了代码的坑。快来这里报告吧：https://github.com/weakish/TaroExample/issues"
     }
@@ -48,9 +49,14 @@ export default class Index extends Component {
   updateOrder = (index, n) => {
     let updatedList = this.state.list
     updatedList[index].ordered += n
-    console.log(updatedList[index].ordered)
+    
+    let updatedTotalPrice = this.state.totalPrice
+    let ticketPrice = updatedList[index].price
+    updatedTotalPrice += ticketPrice * 100 * n
+
     this.setState({
-      list: updatedList
+      list: updatedList,
+      totalPrice: updatedTotalPrice
     })
   }
 
@@ -103,6 +109,7 @@ export default class Index extends Component {
               )
             })}
             </View>
+            <View className="totalPrice">合计 <Text className="totalNumber">{this.state.totalPrice / 100}</Text> 元</View>
         </View>
       )
     } else {
