@@ -45,13 +45,22 @@ export default class Index extends Component {
 
   componentDidHide () {}
 
+  updateOrder = (index, n) => {
+    let updatedList = this.state.list
+    updatedList[index].ordered += n
+    console.log(updatedList[index].ordered)
+    this.setState({
+      list: updatedList
+    })
+  }
+
   render () {
     if (this.state.statusCode === 200) {
       return (
         <View className='container'>
             <Text className='heading'>选择票种</Text>
             <View className='tickets'>
-            {this.state.list.map(ticket => {
+            {this.state.list.map((ticket, index) => {
 
               let quotaMessage  
               if (ticket.quota === 0) {
@@ -86,9 +95,9 @@ export default class Index extends Component {
                       <Text className='ticketQuota'>{quotaMessage}</Text>
                     </View>
                     <View className='counter'>
-                      <Button className='buttonMinus' size='mini' disabled={isMinusDisabled}>-</Button>
+                      <Button className='buttonMinus' size='mini' disabled={isMinusDisabled} onClick={this.updateOrder.bind(this, index, -1)}>-</Button>
                       <Button className='buttonNumber' plain hoverClass size='mini'>{ticket.ordered}</Button>
-                      <Button className='buttonPlus' size='mini' disabled={isPlusDisabled}>+</Button>
+                      <Button className='buttonPlus' size='mini' disabled={isPlusDisabled} onClick={this.updateOrder.bind(this, index, 1)}>+</Button>
                     </View>
                   </View>
               )
